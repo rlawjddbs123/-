@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>고슐랭 | 고려대 맞춤형 식당 추천</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="고려대학교 학생들을 위한 초고속 맞춤형 식당 추천 서비스. 위치, 예산, 동선에 딱 맞는 밥집을 단 3초 만에 골라보세요.">
+  <meta name="keywords" content="고려대학교, 고대맛집, 안암맛집, 고슐랭, 식당추천, 대학생혼밥">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- App Main Wrapper (Simulates mobile screen on desktop) -->
+  <div class="app-wrapper">
+    
+    <!-- Top Navigation Bar -->
+    <header class="app-header">
+      <div class="header-content">
+        <button id="back-btn" class="icon-btn hide" aria-label="뒤로가기">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </button>
+        <div class="logo-container">
+          <span class="logo-text" id="header-logo">GOSHELIN <span class="accent">★</span></span>
+        </div>
+        <button id="home-nav-btn" class="icon-btn" aria-label="홈으로">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main View Contents Container -->
+    <main class="app-content">
+
+      <!-- ==================== VIEW 1: HOME VIEW ==================== -->
+      <section id="view-home" class="app-view active">
+        <div class="hero-section">
+          <div class="hero-badge">KU LIFE HACK</div>
+          <h1 class="hero-title">오늘 학식 말고<br><span class="highlight-crimson">뭐 먹을까?</span></h1>
+          <p class="hero-subtitle">이동 동선, 가격대, 목적에 딱 맞는 안암 밥집을 초고속으로 매칭해 드립니다.</p>
+          
+          <div class="hero-illustration">
+            <div class="circle-glow"></div>
+            <!-- Dynamic Vector Bowl Graphic -->
+            <svg class="bowl-graphic" viewBox="0 0 200 200" width="160" height="160">
+              <defs>
+                <linearGradient id="bowlGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#8A1538" />
+                  <stop offset="100%" stop-color="#C53030" />
+                </linearGradient>
+                <linearGradient id="noodleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#ECC94B" />
+                  <stop offset="100%" stop-color="#D69E2E" />
+                </linearGradient>
+              </defs>
+              <!-- Steam -->
+              <path class="steam steam-1" d="M80 50 Q85 30 75 10" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-linecap="round"/>
+              <path class="steam steam-2" d="M100 50 Q105 25 95 10" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="3" stroke-linecap="round"/>
+              <path class="steam steam-3" d="M120 50 Q125 35 115 10" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-linecap="round"/>
+              <!-- Noodle details inside -->
+              <path d="M50 90 Q100 70 150 90 M55 100 Q100 85 145 100" fill="none" stroke="url(#noodleGrad)" stroke-width="6" stroke-linecap="round"/>
+              <!-- Bowl -->
+              <path d="M30 90 C30 150 170 150 170 90 Z" fill="url(#bowlGrad)" />
+              <path d="M60 148 C60 160 140 160 140 148 Z" fill="#4A0E1E" />
+              <!-- Chopsticks -->
+              <line x1="160" y1="50" x2="90" y2="110" stroke="#E2E8F0" stroke-width="6" stroke-linecap="round" />
+              <line x1="175" y1="55" x2="105" y2="115" stroke="#CBD5E0" stroke-width="6" stroke-linecap="round" />
+              <!-- Star rating element badge -->
+              <g transform="translate(140, 110)">
+                <circle cx="20" cy="20" r="22" fill="#D69E2E" filter="drop-shadow(0px 4px 6px rgba(0,0,0,0.3))"/>
+                <text x="20" y="26" font-family="'Outfit', sans-serif" font-weight="800" font-size="16" fill="#0B0F19" text-anchor="middle">4.8</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div class="action-section">
+          <button id="go-filter-btn" class="btn btn-primary btn-shine">
+            <span>나만을 위한 식당 매칭하기</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+          
+          <button id="go-roulette-btn" class="btn btn-secondary">
+            <span class="emoji-shake">🎲</span> 오늘 뭐 먹지? (랜덤 추천)
+          </button>
+        </div>
+
+        <div class="stats-footer">
+          <div class="stat-item">
+            <span class="stat-num">14+</span>
+            <span class="stat-label">엄선된 맛집</span>
+          </div>
+          <div class="divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">고대생 평가 반영</span>
+          </div>
+          <div class="divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">&lt; 1초</span>
+            <span class="stat-label">검색 시간</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 2: FILTER VIEW ==================== -->
+      <section id="view-filter" class="app-view">
+        <div class="view-header">
+          <h2 class="view-title">밥집 고르기 <span class="step-badge">P0 필수</span></h2>
+          <p class="view-description">원하시는 위치와 식사 필터를 터치해 주세요.</p>
+        </div>
+
+        <form id="filter-form" onsubmit="return false;">
+          
+          <!-- Section 1: Location Base -->
+          <div class="filter-group">
+            <label class="filter-group-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              현재 위치 (거점 선택)
+            </label>
+            
+            <div class="gps-mock-container">
+              <button type="button" id="gps-btn" class="btn-gps">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                현재 GPS 위치 수집 동의
+              </button>
+              <span id="gps-status" class="gps-status">미확인 (거점을 터치하세요)</span>
+            </div>
+
+            <div class="location-grid">
+              <button type="button" class="loc-pill" data-loc="안암역">안암역 (참살이길)</button>
+              <button type="button" class="loc-pill" data-loc="정후">정경대 후문</button>
+              <button type="button" class="loc-pill" data-loc="민광">민주광장 (본교)</button>
+              <button type="button" class="loc-pill" data-loc="법후">법대 후문</button>
+              <button type="button" class="loc-pill" data-loc="노벨광장">이공대 노벨광장</button>
+            </div>
+            <input type="hidden" name="location" id="selected-location" value="" required>
+          </div>
+
+          <!-- Section 2: Category Filters -->
+          <div class="filter-group">
+            <label class="filter-group-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              음식 종류 카테고리
+            </label>
+            <div class="chips-row multi-select">
+              <button type="button" class="chip active" data-cat="all">전체</button>
+              <button type="button" class="chip" data-cat="Korean">한식/분식</button>
+              <button type="button" class="chip" data-cat="Japanese">일식</button>
+              <button type="button" class="chip" data-cat="Chinese">중식</button>
+              <button type="button" class="chip" data-cat="Western">양식</button>
+              <button type="button" class="chip" data-cat="Asian">아시안</button>
+              <button type="button" class="chip" data-cat="FastFood">패스트푸드</button>
+              <button type="button" class="chip" data-cat="Cafe">카페/디저트</button>
+              <button type="button" class="chip" data-cat="LateNight">야식/기타</button>
+            </div>
+          </div>
+
+          <!-- Section 3: Budget Filters -->
+          <div class="filter-group">
+            <label class="filter-group-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              가격대 / 가성비
+            </label>
+            <div class="radio-selector">
+              <label class="radio-card">
+                <input type="radio" name="price" value="all" checked>
+                <div class="radio-card-content">
+                  <span class="radio-title">전체 보기</span>
+                  <span class="radio-desc">예산 무관</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="price" value="low">
+                <div class="radio-card-content">
+                  <span class="radio-title">7천원 이하</span>
+                  <span class="radio-desc">초가성비</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="price" value="mid">
+                <div class="radio-card-content">
+                  <span class="radio-title">7천원 ~ 1만원</span>
+                  <span class="radio-desc">실속파 대세</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="price" value="high">
+                <div class="radio-card-content">
+                  <span class="radio-title">1만원 이상</span>
+                  <span class="radio-desc">나를 위한 플렉스</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Section 4: Distance/Time Limit -->
+          <div class="filter-group">
+            <label class="filter-group-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              도보 시간 상한선 (거리)
+            </label>
+            <div class="radio-selector cols-3">
+              <label class="radio-pill">
+                <input type="radio" name="walk" value="5">
+                <div class="radio-pill-content">도보 5분 이내</div>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="walk" value="10" checked>
+                <div class="radio-pill-content">도보 10분 이내</div>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="walk" value="15">
+                <div class="radio-pill-content">도보 15분 이내</div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Section 5: Purpose of visit -->
+          <div class="filter-group">
+            <label class="filter-group-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              식사 인원 및 방문 목적
+            </label>
+            <div class="radio-selector cols-3">
+              <label class="radio-pill">
+                <input type="radio" name="purpose" value="solo">
+                <div class="radio-pill-content">혼밥</div>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="purpose" value="friends" checked>
+                <div class="radio-pill-content">2~4인 동행</div>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="purpose" value="group">
+                <div class="radio-pill-content">과반/동아리 회식</div>
+              </label>
+            </div>
+          </div>
+
+          <div style="margin-top: 30px;">
+            <button type="submit" id="submit-filter-btn" class="btn btn-primary">
+              매칭 식당 3~5곳 골라내기
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ==================== VIEW 3: RESULTS VIEW ==================== -->
+      <section id="view-results" class="app-view">
+        <div class="view-header">
+          <h2 class="view-title">매칭 점수 TOP 식당</h2>
+          <p class="view-description" id="results-summary-text">정경대 후문 근처 밥집 매칭 결과</p>
+        </div>
+
+        <!-- Matching list container -->
+        <div id="results-list" class="results-list">
+          <!-- Dynamically populated card items -->
+        </div>
+
+        <div class="results-empty hide" id="results-empty">
+          <div class="empty-icon">😅</div>
+          <h3>조건에 맞는 식당이 없습니다</h3>
+          <p>도보 시간을 조금 늘리거나 다른 가격대를 선택해보세요!</p>
+          <button id="retry-filter-btn" class="btn btn-secondary">필터 수정하러 가기</button>
+        </div>
+
+        <div class="actions-row">
+          <button id="reset-filter-btn" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+            필터 다시 맞추기
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 4: DETAIL VIEW ==================== -->
+      <section id="view-detail" class="app-view">
+        <!-- Main top card in details -->
+        <div class="detail-hero" id="detail-hero-banner">
+          <div class="detail-header-card">
+            <span class="detail-cat-badge" id="detail-category-badge">한식</span>
+            <h2 class="detail-title" id="detail-name">어머니밥상</h2>
+            <p class="detail-description" id="detail-description">엄마 손맛이 그리울 때 찾는 따뜻한 정경대 후문 밥집.</p>
+            <div class="detail-stars">
+              <span class="stars-icon">★</span>
+              <span class="rating-num" id="detail-overall-rating">4.5</span>
+              <span class="review-count" id="detail-review-count">(후기 3개)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick specs Grid -->
+        <div class="specs-grid">
+          <div class="spec-card">
+            <div class="spec-label">대표 메뉴</div>
+            <div class="spec-value" id="detail-main-menu">제육볶음 정식</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">평균 가격대</div>
+            <div class="spec-value" id="detail-avg-price">8,500원</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">조리/대기 시간</div>
+            <div class="spec-value" id="detail-prep-time">10분 이내</div>
+          </div>
+        </div>
+
+        <!-- Node distances -->
+        <div class="detail-group">
+          <h3 class="detail-sub-title">캠퍼스 거점별 도보 거리</h3>
+          <div class="distance-progress-list" id="detail-distance-list">
+            <!-- Dynamically populated distances -->
+          </div>
+        </div>
+
+        <!-- Campus Mini-map (Stylized Mock Canvas Map) -->
+        <div class="detail-group">
+          <h3 class="detail-sub-title">위치 시각화 지도</h3>
+          <div class="mock-map-container">
+            <canvas id="campus-map" width="360" height="240"></canvas>
+            <div class="map-legend">
+              <span class="legend-item"><span class="legend-dot current"></span>선택 거점</span>
+              <span class="legend-item"><span class="legend-dot target"></span>식당 위치</span>
+            </div>
+          </div>
+          <div class="map-external-links">
+            <a href="#" id="naver-map-btn" target="_blank" class="btn-map naver">
+              <span>Naver 지도 보기</span>
+            </a>
+            <a href="#" id="kakao-map-btn" target="_blank" class="btn-map kakao">
+              <span>Kakao 맵 보기</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Rating Breakdowns -->
+        <div class="detail-group">
+          <h3 class="detail-sub-title">고대생 세부 평가</h3>
+          <div class="rating-bar-group">
+            <div class="rating-bar-item">
+              <div class="bar-header">
+                <span>맛 (Taste)</span>
+                <span class="bar-num" id="bar-taste-val">4.6</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" id="bar-taste-fill" style="width: 92%;"></div>
+              </div>
+            </div>
+            <div class="rating-bar-item">
+              <div class="bar-header">
+                <span>가성비 (Value)</span>
+                <span class="bar-num" id="bar-value-val">4.7</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" id="bar-value-fill" style="width: 94%;"></div>
+              </div>
+            </div>
+            <div class="rating-bar-item">
+              <div class="bar-header">
+                <span>위생 상태 (Hygiene)</span>
+                <span class="bar-num" id="bar-hygiene-val">4.1</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" id="bar-hygiene-fill" style="width: 82%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Reviews List -->
+        <div class="detail-group">
+          <h3 class="detail-sub-title">생생한 학생 후기</h3>
+          <div class="reviews-list" id="detail-reviews-list">
+            <!-- Dynamically populated reviews -->
+          </div>
+        </div>
+
+        <!-- Add Review Form (P1 requirement) -->
+        <div class="detail-group review-form-card">
+          <h3 class="detail-sub-title">진짜 고대생의 촌철살인 한줄평 남기기</h3>
+          <form id="review-submit-form" onsubmit="return false;">
+            <div class="form-field">
+              <label>작성자 닉네임</label>
+              <input type="text" id="review-author" placeholder="예: 정경대 K씨, 컴공19" required maxlength="12">
+            </div>
+            
+            <div class="form-field">
+              <label>종합 별점</label>
+              <div class="stars-rating-input">
+                <input type="radio" id="star5" name="overall-rating" value="5" checked><label for="star5" title="5 stars">★</label>
+                <input type="radio" id="star4" name="overall-rating" value="4"><label for="star4" title="4 stars">★</label>
+                <input type="radio" id="star3" name="overall-rating" value="3"><label for="star3" title="3 stars">★</label>
+                <input type="radio" id="star2" name="overall-rating" value="2"><label for="star2" title="2 stars">★</label>
+                <input type="radio" id="star1" name="overall-rating" value="1"><label for="star1" title="1 star">★</label>
+              </div>
+            </div>
+
+            <!-- Slider criteria (Taste, Value, Hygiene) -->
+            <div class="form-field">
+              <div class="slider-label">맛 평가: <span id="taste-indicator">5.0</span> / 5.0</div>
+              <input type="range" id="range-taste" min="1" max="5" step="0.5" value="5">
+            </div>
+            
+            <div class="form-field">
+              <div class="slider-label">가성비 평가: <span id="value-indicator">5.0</span> / 5.0</div>
+              <input type="range" id="range-value" min="1" max="5" step="0.5" value="5">
+            </div>
+
+            <div class="form-field">
+              <div class="slider-label">위생/기타 평가: <span id="hygiene-indicator">5.0</span> / 5.0</div>
+              <input type="range" id="range-hygiene" min="1" max="5" step="0.5" value="5">
+            </div>
+
+            <div class="form-field">
+              <label>한줄평 내용</label>
+              <textarea id="review-comment" placeholder="음식 나오는 속도, 친절도, 추천 메뉴 꿀팁을 전해주세요!" required maxlength="150"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="btn-submit-review">후기 등록 완료</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 5: ROULETTE VIEW ==================== -->
+      <section id="view-roulette" class="app-view">
+        <div class="view-header">
+          <h2 class="view-title">오늘 뭐 먹지? <span class="step-badge orange">P1 스낵</span></h2>
+          <p class="view-description">고민은 이동 시간만 늦출 뿐! 평점 4.0 이상 식당 중 하나를 무작위로 매칭합니다.</p>
+        </div>
+
+        <div class="roulette-container">
+          <div class="roulette-pointer">▼</div>
+          <div class="roulette-wheel-wrapper">
+            <div id="roulette-wheel" class="roulette-wheel">
+              <!-- Dynamically rendered wedge text slices -->
+            </div>
+          </div>
+        </div>
+
+        <div class="roulette-action-box">
+          <button id="spin-btn" class="btn btn-primary btn-shine">
+            <span>룰렛 돌리기!</span>
+          </button>
+          <div class="roulette-location-note">
+            현재 선택 거점: <strong id="roulette-current-loc">안암역</strong> 기준 10분 이내 식당
+          </div>
+        </div>
+
+        <!-- Result Popup Modal (Glow effect) -->
+        <div id="roulette-result-card" class="roulette-result-card hide">
+          <div class="result-glow-effect"></div>
+          <div class="card-inner">
+            <span class="badge-gold">★ 오늘의 픽 ★</span>
+            <h3 id="roulette-result-name">고른햇살</h3>
+            <p id="roulette-result-menu">대표 메뉴: 참치김밥, 라볶이</p>
+            <div class="result-meta">
+              <span>🚶 도보 <strong id="roulette-result-walk">2</strong>분</span>
+              <span>⭐ 평점 <strong id="roulette-result-rating">4.6</strong></span>
+            </div>
+            <p class="result-one-liner" id="roulette-result-comment">"참치김밥 크기가 머리통만 합니다. 가성비 극강."</p>
+            <div class="result-actions">
+              <button id="roulette-detail-btn" class="btn btn-primary btn-small">상세 정보 / 리뷰 보기</button>
+              <button id="roulette-retry-btn" class="btn btn-secondary btn-small">한 번 더 돌리기 🔄</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Action Quick Bar -->
+    <footer class="app-footer-nav">
+      <button id="tab-home" class="tab-btn active">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span>홈</span>
+      </button>
+      <button id="tab-match" class="tab-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        <span>맞춤매칭</span>
+      </button>
+      <button id="tab-roulette" class="tab-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16.2 7.8l-2 2-2-2 2-2 2 2zM7.8 16.2l2-2 2 2-2 2-2-2zM7.8 7.8l2 2-2 2-2-2 2-2zM16.2 16.2l-2-2 2-2 2 2-2 2z"></path></svg>
+        <span>오늘뭐먹지</span>
+      </button>
+    </footer>
+
+  </div>
+
+  <!-- Load Scripts -->
+  <script src="database.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

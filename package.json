@@ -1,0 +1,13 @@
+{
+  "name": "goshelin",
+  "version": "1.0.0",
+  "description": "Korea University restaurant recommendation service",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
